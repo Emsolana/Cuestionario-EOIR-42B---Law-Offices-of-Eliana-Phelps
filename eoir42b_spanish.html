@@ -1,0 +1,2358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario EOIR-42B - Law Offices of Eliana Phelps</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 5px solid #d4af37;
+        }
+
+        .firm-name {
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .form-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .instructions {
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .instructions-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            background: linear-gradient(to right, #34495e, #2c3e50);
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question-number {
+            color: #2980b9;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .input-short {
+            width: 200px;
+        }
+
+        .input-medium {
+            width: 400px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .input-label {
+            display: inline-block;
+            min-width: 150px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .checkbox-group {
+            margin: 10px 0;
+        }
+
+        .checkbox-item {
+            margin: 8px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        table th {
+            background: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .subsection {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+            border-radius: 4px;
+        }
+
+        .subsection-title {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-item input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .signature-box {
+            border: 2px dashed #95a5a6;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+
+        .footer {
+            background: #34495e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .privacy-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .privacy-note strong {
+            color: #856404;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .date-inputs input {
+            width: 80px;
+        }
+
+        .hint-text {
+            font-size: 12px;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .important-note {
+            background: #fee;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .input-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="firm-name">Law Offices of Eliana Phelps</div>
+            <div class="form-title">Cuestionario para Solicitud de Cancelación de Remoción</div>
+            <div class="form-subtitle">Formulario EOIR-42B - Ajuste de Estatus para Ciertos Residentes No Permanentes</div>
+        </div>
+
+        <div class="content">
+            <div class="instructions">
+                <div class="instructions-title">INSTRUCCIONES IMPORTANTES</div>
+                <ul>
+                    <li>Por favor responda todas las preguntas de forma completa y honesta</li>
+                    <li>Si una pregunta no aplica a usted, escriba "No aplica" o "N/A"</li>
+                    <li>Use letra clara o escriba a máquina</li>
+                    <li>Si necesita más espacio, use hojas adicionales numeradas</li>
+                    <li>Toda información proporcionada es confidencial y protegida por privilegio abogado-cliente</li>
+                </ul>
+            </div>
+
+            <!-- PARTE 1: INFORMACIÓN PERSONAL -->
+            <div class="section">
+                <div class="section-header">Parte 1 - Información Personal</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">1)</span> Mi nombre legal completo actual es:</div>
+                    <div class="input-group">
+                        <div style="flex: 1;">
+                            <div class="input-label">Apellido(s):</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="flex: 1;">
+                            <div class="input-label">Nombre(s):</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="flex: 1;">
+                            <div class="input-label">Segundo Nombre:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">2)</span> Número(s) de Registro de Extranjero (Número "A"):</div>
+                    <input type="text" class="input-field input-medium" placeholder="A#" />
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">3)</span> Mi nombre al nacer era:</div>
+                    <input type="text" class="input-field" />
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">4)</span> Lugar de nacimiento:</div>
+                    <div class="input-group">
+                        <div>
+                            <div class="input-label">Ciudad:</div>
+                            <input type="text" class="input-field input-medium" />
+                        </div>
+                        <div>
+                            <div class="input-label">País:</div>
+                            <input type="text" class="input-field input-medium" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">5)</span> Fecha de nacimiento:</div>
+                    <div class="date-inputs">
+                        <input type="text" class="input-field" placeholder="Día" maxlength="2" />
+                        <span>/</span>
+                        <input type="text" class="input-field" placeholder="Mes" maxlength="2" />
+                        <span>/</span>
+                        <input type="text" class="input-field" placeholder="Año" maxlength="4" />
+                    </div>
+                    <div class="hint-text">(Día/Mes/Año)</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">6)</span> Sexo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="sexo" id="masculino" />
+                            <label for="masculino">Masculino</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="sexo" id="femenino" />
+                            <label for="femenino">Femenino</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">7)</span> Estatura:</div>
+                        <input type="text" class="input-field" placeholder="ej: 5'8&quot; o 173 cm" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">8)</span> Color de cabello:</div>
+                        <input type="text" class="input-field" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">9)</span> Color de ojos:</div>
+                        <input type="text" class="input-field" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">10)</span> Nacionalidad actual:</div>
+                        <input type="text" class="input-field" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">11)</span> Número de Seguro Social:</div>
+                        <input type="text" class="input-field" placeholder="XXX-XX-XXXX" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">12)</span> Teléfono de casa:</div>
+                        <input type="tel" class="input-field" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">13)</span> Teléfono del trabajo:</div>
+                        <input type="tel" class="input-field" />
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">14)</span> Dirección actual de residencia:</div>
+                    <div style="margin-bottom: 10px;">
+                        <div class="input-label">Calle y número:</div>
+                        <input type="text" class="input-field" />
+                    </div>
+                    <div class="grid-2">
+                        <div>
+                            <div class="input-label">Apartamento:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Ciudad:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Estado:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Código Postal:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">15)</span> También he sido conocido por estos nombres adicionales:</div>
+                    <textarea class="input-field"></textarea>
+                </div>
+            </div>
+
+            <!-- PARTE 2: HISTORIAL DE DIRECCIONES -->
+            <div class="section">
+                <div class="section-header">Parte 2 - Historial de Direcciones en Estados Unidos</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">16)</span> He vivido en las siguientes direcciones en Estados Unidos:</div>
+                    <div class="hint-text">Liste su dirección ACTUAL PRIMERO y trabaje hacia atrás por al menos 10 años</div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Dirección Completa</th>
+                                    <th>Vivió Desde</th>
+                                    <th>Vivió Hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="input-field" placeholder="Dirección actual" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td style="text-align: center;"><strong>PRESENTE</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="hint-text">Use hojas adicionales si necesita listar más direcciones</div>
+                </div>
+            </div>
+
+            <!-- PARTE 3: ELEGIBILIDAD -->
+            <div class="section">
+                <div class="section-header">Parte 3 - Elegibilidad para Cancelación de Remoción</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">17)</span> Yo, el abajo firmante, solicito que mi remoción sea cancelada bajo las disposiciones de la sección 240A(b) de la Ley de Inmigración y Nacionalidad (INA). Creo que soy elegible para la cancelación de remoción porque:</div>
+                    <div class="hint-text">Marque todo lo que aplique</div>
+
+                    <div class="subsection">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hardship" />
+                            <label for="hardship"><strong>Mi remoción resultaría en dificultades excepcionales y extremadamente inusuales para mi:</strong></label>
+                        </div>
+
+                        <div style="margin-left: 30px; margin-top: 15px;">
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Relación Familiar</th>
+                                            <th>Ciudadano de EE.UU.</th>
+                                            <th>Residente Permanente Legal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Esposo/a</strong></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Padre</strong></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Madre</strong></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Hijo(s)/Hija(s)</strong></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                            <td style="text-align: center;"><input type="checkbox" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection" style="border-left-color: #3498db;">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="violence" />
+                            <label for="violence"><strong>Yo, o mi hijo/a, hemos sido maltratados o sujetos a crueldad extrema por un cónyuge o padre que es ciudadano estadounidense o residente permanente legal.</strong></label>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="question-text">Con la excepción de las ausencias descritas en la pregunta 23, he residido en Estados Unidos desde:</div>
+                        <div class="date-inputs">
+                            <input type="text" class="input-field" placeholder="Día" maxlength="2" />
+                            <span>/</span>
+                            <input type="text" class="input-field" placeholder="Mes" maxlength="2" />
+                            <span>/</span>
+                            <input type="text" class="input-field" placeholder="Año" maxlength="4" />
+                        </div>
+                        <div class="hint-text">(Día/Mes/Año)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 4: ENTRADA A EE.UU. -->
+            <div class="section">
+                <div class="section-header">Parte 4 - Información sobre su Entrada a Estados Unidos</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">18)</span> Llegué por primera vez a Estados Unidos bajo el nombre de:</div>
+                    <input type="text" class="input-field" />
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">19)</span> Llegué por primera vez a Estados Unidos el:</div>
+                    <div class="date-inputs">
+                        <input type="text" class="input-field" placeholder="Día" />
+                        <span>/</span>
+                        <input type="text" class="input-field" placeholder="Mes" />
+                        <span>/</span>
+                        <input type="text" class="input-field" placeholder="Año" />
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">20)</span> Lugar o puerto de primera entrada:</div>
+                    <div class="grid-2">
+                        <div>
+                            <div class="input-label">Puerto/Lugar:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Ciudad:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Estado:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">21)</span> Yo:</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inspected" />
+                            <label for="inspected"><strong>Fui inspeccionado y admitido</strong></label>
+                        </div>
+                        
+                        <div style="margin-left: 30px;">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lpr-card" />
+                                <label for="lpr-card">Entré usando mi tarjeta de Residente Permanente Legal válida hasta:</label>
+                            </div>
+                            <input type="text" class="input-field input-medium" placeholder="Fecha de vencimiento" style="margin-left: 30px; margin-top: 5px;" />
+                            <input type="text" class="input-field" placeholder="Categoría en la tarjeta" style="margin-left: 30px; margin-top: 5px;" />
+
+                            <div class="checkbox-item" style="margin-top: 10px;">
+                                <input type="checkbox" id="visa" />
+                                <label for="visa">Entré usando una visa válida hasta:</label>
+                            </div>
+                            <input type="text" class="input-field input-medium" placeholder="Fecha de vencimiento" style="margin-left: 30px; margin-top: 5px;" />
+                            <input type="text" class="input-field" placeholder="Tipo de visa (ej: B-2, F-1, H-1B)" style="margin-left: 30px; margin-top: 5px;" />
+                        </div>
+
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="not-inspected" />
+                            <label for="not-inspected"><strong>NO fui inspeccionado y admitido</strong></label>
+                        </div>
+
+                        <div style="margin-left: 30px;">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="no-docs" />
+                                <label for="no-docs">Entré sin documentos. Explique:</label>
+                            </div>
+                            <textarea class="input-field" style="margin-left: 30px; margin-top: 5px;"></textarea>
+
+                            <div class="checkbox-item" style="margin-top: 10px;">
+                                <input type="checkbox" id="no-inspection" />
+                                <label for="no-inspection">Entré sin inspección. Explique:</label>
+                            </div>
+                            <textarea class="input-field" style="margin-left: 30px; margin-top: 5px;"></textarea>
+
+                            <div class="checkbox-item" style="margin-top: 10px;">
+                                <input type="checkbox" id="other-entry" />
+                                <label for="other-entry">Otro. Explique:</label>
+                            </div>
+                            <textarea class="input-field" style="margin-left: 30px; margin-top: 5px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">22)</span> Extensión de estadía:</div>
+                    <div style="margin-left: 20px;">
+                        <p>Solicité el: <input type="text" class="input-field input-short" placeholder="DD/MM/AAAA" /> tiempo adicional para permanecer y fue:</p>
+                        <div class="radio-group" style="margin-top: 10px;">
+                            <div class="radio-item">
+                                <input type="radio" name="extension" id="granted" />
+                                <label for="granted">Aprobado el: <input type="text" class="input-field input-medium" placeholder="DD/MM/AAAA" /> válido hasta: <input type="text" class="input-field input-medium" placeholder="DD/MM/AAAA" /></label>
+                            </div>
+                        </div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="extension" id="denied" />
+                                <label for="denied">Negado el: <input type="text" class="input-field input-medium" placeholder="DD/MM/AAAA" /></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 5: VIAJES -->
+            <div class="section">
+                <div class="section-header">Parte 5 - Viajes Fuera de Estados Unidos</div>
+
+                <div class="important-note">
+                    <strong>IMPORTANTE:</strong> Debe listar TODAS las salidas de Estados Unidos, sin importar qué tan breve fue la ausencia.
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">23)</span> Desde la fecha de mi primera entrada, he salido y regresado a Estados Unidos:</div>
+                    
+                    <div class="checkbox-item" style="background: #d4edda; border: 2px solid #28a745;">
+                        <input type="checkbox" id="never-left" />
+                        <label for="never-left"><strong>Si NUNCA ha salido de Estados Unidos desde su entrada original, marque ÚNICAMENTE esta casilla y continúe a la pregunta 24</strong></label>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title">VIAJE No. 1</div>
+                        
+                        <div style="background: #e8f4f8; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                            <strong>SALIDA:</strong>
+                            <div class="grid-2" style="margin-top: 10px;">
+                                <div>
+                                    <div class="input-label">Puerto de salida:</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Fecha de salida:</div>
+                                    <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Propósito del viaje:</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Destino (país):</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: #f0f8e8; padding: 15px; border-radius: 5px;">
+                            <strong>REGRESO:</strong>
+                            <div class="grid-2" style="margin-top: 10px;">
+                                <div>
+                                    <div class="input-label">Puerto de regreso:</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Fecha de regreso:</div>
+                                    <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Manera de regreso:</div>
+                                    <input type="text" class="input-field" placeholder="ej: avión, auto" />
+                                </div>
+                                <div>
+                                    <div class="input-label">¿Fue inspeccionado y admitido?</div>
+                                    <div class="radio-group">
+                                        <div class="radio-item">
+                                            <input type="radio" name="inspected1" />
+                                            <label>Sí</label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" name="inspected1" />
+                                            <label>No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title">VIAJE No. 2</div>
+                        
+                        <div style="background: #e8f4f8; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                            <strong>SALIDA:</strong>
+                            <div class="grid-2" style="margin-top: 10px;">
+                                <div>
+                                    <div class="input-label">Puerto de salida:</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Fecha de salida:</div>
+                                    <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Propósito del viaje:</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Destino (país):</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: #f0f8e8; padding: 15px; border-radius: 5px;">
+                            <strong>REGRESO:</strong>
+                            <div class="grid-2" style="margin-top: 10px;">
+                                <div>
+                                    <div class="input-label">Puerto de regreso:</div>
+                                    <input type="text" class="input-field" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Fecha de regreso:</div>
+                                    <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                                </div>
+                                <div>
+                                    <div class="input-label">Manera de regreso:</div>
+                                    <input type="text" class="input-field" placeholder="ej: avión, auto" />
+                                </div>
+                                <div>
+                                    <div class="input-label">¿Fue inspeccionado y admitido?</div>
+                                    <div class="radio-group">
+                                        <div class="radio-item">
+                                            <input type="radio" name="inspected2" />
+                                            <label>Sí</label>
+                                        </div>
+                                        <div class="radio-item">
+                                            <input type="radio" name="inspected2" />
+                                            <label>No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hint-text">Use hojas adicionales si tiene más de 2 viajes</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">24)</span> ¿Alguna vez ha salido de Estados Unidos:</div>
+                    <div class="grid-2">
+                        <div>
+                            <strong>a) ¿bajo una orden de deportación, exclusión o remoción?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="deport-order" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="deport-order" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>b) ¿de acuerdo con un permiso de salida voluntaria?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="vol-departure" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="vol-departure" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 6: ESTADO CIVIL -->
+            <div class="section">
+                <div class="section-header">Parte 6 - Información sobre Estado Civil y Cónyuge</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">25)</span> Estado civil actual:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="marital" id="not-married" />
+                            <label for="not-married">No estoy casado/a</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="marital" id="married" />
+                            <label for="married">Estoy casado/a</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title">INFORMACIÓN DEL CÓNYUGE (Complete solo si está casado/a)</div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">26)</span> Nombre completo de mi cónyuge:</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Apellido(s):</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Nombre(s):</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">27)</span> El nombre de mi cónyuge antes del matrimonio era:</div>
+                        <input type="text" class="input-field" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">28)</span> El matrimonio tuvo lugar en:</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Ciudad:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">País:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">29)</span> Fecha del matrimonio:</div>
+                        <div class="date-inputs">
+                            <input type="text" class="input-field" placeholder="Día" />
+                            <span>/</span>
+                            <input type="text" class="input-field" placeholder="Mes" />
+                            <span>/</span>
+                            <input type="text" class="input-field" placeholder="Año" />
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">30)</span> Mi cónyuge actualmente reside en:</div>
+                        <div style="margin-bottom: 10px;">
+                            <div class="input-label">Número y calle:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Apartamento:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ciudad:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Estado/País:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Código Postal:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">31)</span> Lugar y fecha de nacimiento de mi cónyuge:</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Ciudad y País:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de nacimiento:</div>
+                                <div class="date-inputs">
+                                    <input type="text" class="input-field" placeholder="DD" style="width: 60px;" />
+                                    <span>/</span>
+                                    <input type="text" class="input-field" placeholder="MM" style="width: 60px;" />
+                                    <span>/</span>
+                                    <input type="text" class="input-field" placeholder="AAAA" style="width: 80px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">32)</span> Mi cónyuge es ciudadano de:</div>
+                        <input type="text" class="input-field input-medium" placeholder="País" />
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">33)</span> Si su cónyuge NO es ciudadano estadounidense nacido en EE.UU., complete lo siguiente:</div>
+                        <div style="margin-left: 20px;">
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Llegó a Estados Unidos en (lugar/puerto, ciudad, estado):</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Llegó a Estados Unidos el:</div>
+                                <input type="text" class="input-field input-medium" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Su número de registro de extranjero es:</div>
+                                <input type="text" class="input-field input-medium" placeholder="A#" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Fue naturalizado el:</div>
+                                <input type="text" class="input-field input-medium" placeholder="DD/MM/AAAA" />
+                                <span> en: </span>
+                                <input type="text" class="input-field input-medium" placeholder="Ciudad, Estado" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <div class="question-text"><span class="question-number">34)</span> Mi cónyuge:</div>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="spouse-employed" />
+                                <label>SÍ está empleado</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="spouse-employed" />
+                                <label>NO está empleado</label>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 15px;">
+                            <strong>Si está empleado, proporcione información:</strong>
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre Completo y Dirección del Empleador</th>
+                                            <th style="width: 200px;">Ingresos por Semana</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="input-field" /></td>
+                                            <td><input type="text" class="input-field" placeholder="$" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" class="input-field" /></td>
+                                            <td><input type="text" class="input-field" placeholder="$" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 7: MATRIMONIOS ANTERIORES -->
+            <div class="section">
+                <div class="section-header">Parte 7 - Matrimonios Anteriores</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">35)</span> Yo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="prev-married" />
+                            <label>SÍ he estado casado anteriormente</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="prev-married" />
+                            <label>NO he estado casado anteriormente</label>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <strong>Si ha estado casado anteriormente, proporcione detalles:</strong>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del Cónyuge Anterior</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Lugar donde Terminó</th>
+                                        <th>Cómo Terminó</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                        <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" placeholder="divorcio/anulación/muerte" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">36)</span> Mi cónyuge actual:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="spouse-prev-married" />
+                            <label>SÍ ha estado casado anteriormente</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="spouse-prev-married" />
+                            <label>NO ha estado casado anteriormente</label>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <strong>Si su cónyuge ha estado casado anteriormente, proporcione detalles:</strong>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del Cónyuge Anterior</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Lugar donde Terminó</th>
+                                        <th>Cómo Terminó</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                        <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" placeholder="divorcio/anulación/muerte" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">37)</span> ¿Ha sido ordenado por alguna corte, o está bajo alguna obligación legal, de proveer manutención infantil y/o manutención conyugal como resultado de una separación y/o divorcio?</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="child-support" />
+                            <label>Sí</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="child-support" />
+                            <label>No</label>
+                        </div>
+                    </div>
+                    <div class="hint-text">Si respondió Sí, proporcione detalles completos en una hoja adicional</div>
+                </div>
+            </div>
+
+            <!-- PARTE 8: EMPLEO -->
+            <div class="section">
+                <div class="section-header">Parte 8 - Información sobre Empleo y Situación Financiera</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">38)</span> Desde mi llegada a Estados Unidos, he sido empleado por las siguientes personas o empresas:</div>
+                    <div class="hint-text">Comience con empleo ACTUAL y trabaje hacia atrás. Especifique períodos de desempleo o asistencia escolar.</div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre y Dirección Completa del Empleador</th>
+                                    <th>Ingresos/Semana</th>
+                                    <th>Tipo de Trabajo</th>
+                                    <th>Desde</th>
+                                    <th>Hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="$" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td style="text-align: center;"><strong>PRESENTE</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="$" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="$" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">39)</span> Si trabaja por cuenta propia, describa:</div>
+                    <div style="margin-left: 20px;">
+                        <div style="margin-bottom: 10px;">
+                            <div class="input-label">Naturaleza del negocio:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <div class="input-label">Nombre del negocio:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <div class="input-label">Dirección del negocio:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <div class="input-label">Ingresos netos anuales:</div>
+                            <input type="text" class="input-field input-medium" placeholder="$" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">40)</span> Mis bienes (y si está casado, los bienes de mi cónyuge) en Estados Unidos y otros países:</div>
+                    <div class="hint-text">No incluya ropa y necesidades del hogar</div>
+
+                    <div class="grid-2">
+                        <div class="subsection">
+                            <div class="subsection-title" style="border-left-color: #3498db;">BIENES PROPIOS</div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Efectivo, Acciones y Bonos:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Bienes Raíces:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Auto (valor menos deuda):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Otros (describa):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #34495e;">
+                                <div class="input-label"><strong>TOTAL:</strong></div>
+                                <input type="text" class="input-field" placeholder="$" style="font-weight: bold;" />
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title" style="border-left-color: #9b59b6;">BIENES CONJUNTOS CON CÓNYUGE</div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Efectivo, Acciones y Bonos:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Bienes Raíces:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Auto (valor menos deuda):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Otros (describa):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #34495e;">
+                                <div class="input-label"><strong>TOTAL:</strong></div>
+                                <input type="text" class="input-field" placeholder="$" style="font-weight: bold;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">41)</span> Yo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="public-assist" />
+                            <label>SÍ he recibido</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="public-assist" />
+                            <label>NO he recibido</label>
+                        </div>
+                    </div>
+                    <div class="question-text" style="margin-top: 10px;">asistencia pública o privada (ej. Welfare, Desempleo, Medicaid, TANF, AFDC, etc.)</div>
+                    
+                    <div class="subsection">
+                        <strong>Si ha recibido asistencia, proporcione detalles completos:</strong>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Tipo de asistencia recibida:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Fechas en que recibió asistencia:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Lugar:</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Monto total recibido durante este tiempo:</div>
+                            <input type="text" class="input-field input-medium" placeholder="$" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">42)</span> Por favor liste cada uno de los años en que ha presentado una declaración de impuestos con el IRS:</div>
+                    <textarea class="input-field" placeholder="ej: 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024"></textarea>
+                </div>
+            </div>
+
+            <!-- PARTE 9: INFORMACIÓN FAMILIAR -->
+            <div class="section">
+                <div class="section-header">Parte 9 - Información sobre su Familia (Hijos)</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">43)</span> Tengo <input type="text" class="input-field input-short" placeholder="número" /> hijo(s)/hija(s).</div>
+                    <div class="hint-text">Complete la información de cada hijo/a. Para hijos mayores de 16 años, incluya información de bienes e ingresos si tienen ingresos separados.</div>
+
+                    <div class="subsection">
+                        <div class="subsection-title">HIJO/A No. 1</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Nombre completo:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Número de Registro (A#):</div>
+                                <input type="text" class="input-field" placeholder="A#" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ciudadano de qué país:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de nacimiento:</div>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div>
+                                <div class="input-label">Lugar de nacimiento:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Reside actualmente en:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Estado migratorio:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Total estimado de bienes:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ingresos semanales promedio:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title">HIJO/A No. 2</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Nombre completo:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Número de Registro (A#):</div>
+                                <input type="text" class="input-field" placeholder="A#" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ciudadano de qué país:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de nacimiento:</div>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div>
+                                <div class="input-label">Lugar de nacimiento:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Reside actualmente en:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Estado migratorio:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Total estimado de bienes:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ingresos semanales promedio:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hint-text">Use hojas adicionales para más hijos</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">44)</span> Si su solicitud es negada, ¿su cónyuge y todos sus hijos lo/la acompañarían a su:</div>
+                    <div style="margin-left: 20px;">
+                        <div style="margin-bottom: 10px;">
+                            <strong>País de nacimiento:</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="accompany-birth" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="accompany-birth" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <strong>País de nacionalidad:</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="accompany-nat" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="accompany-nat" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <strong>País de última residencia:</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="accompany-res" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="accompany-res" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <div class="input-label">Si respondió "No" a alguna de las opciones, explique:</div>
+                            <textarea class="input-field"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">45)</span> Miembros de mi familia, incluyendo mi cónyuge y/o hijo(s):</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="family-assist" />
+                            <label>SÍ han recibido</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="family-assist" />
+                            <label>NO han recibido</label>
+                        </div>
+                    </div>
+                    <div class="question-text" style="margin-top: 10px;">asistencia pública o privada</div>
+                    
+                    <div class="subsection">
+                        <strong>Si algún miembro ha recibido asistencia, proporcione detalles completos:</strong>
+                        <textarea class="input-field" placeholder="Incluya: identidad de la(s) persona(s) que recibieron asistencia, fechas, lugar, y monto total recibido"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 10: OTROS FAMILIARES -->
+            <div class="section">
+                <div class="section-header">Parte 10 - Información sobre Otros Familiares</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">46)</span> Proporcione información sobre sus padres, hermanos, hermanas, abuelos, tías y tíos (vivos o fallecidos):</div>
+
+                    <div class="subsection">
+                        <div class="subsection-title">FAMILIAR No. 1</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Nombre completo:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Relación conmigo:</div>
+                                <input type="text" class="input-field" placeholder="ej: padre, hermano, tía" />
+                            </div>
+                            <div>
+                                <div class="input-label">Número de Registro (A#):</div>
+                                <input type="text" class="input-field" placeholder="A#" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ciudadano de qué país:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de nacimiento:</div>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div>
+                                <div class="input-label">Lugar de nacimiento:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Estado migratorio:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Dirección completa de residencia actual (si vive):</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <div class="subsection-title">FAMILIAR No. 2</div>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Nombre completo:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Relación conmigo:</div>
+                                <input type="text" class="input-field" placeholder="ej: madre, hermana, abuelo" />
+                            </div>
+                            <div>
+                                <div class="input-label">Número de Registro (A#):</div>
+                                <input type="text" class="input-field" placeholder="A#" />
+                            </div>
+                            <div>
+                                <div class="input-label">Ciudadano de qué país:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de nacimiento:</div>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div>
+                                <div class="input-label">Lugar de nacimiento:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Estado migratorio:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Dirección completa de residencia actual (si vive):</div>
+                            <input type="text" class="input-field" />
+                        </div>
+                    </div>
+
+                    <div class="hint-text">Use hojas adicionales para listar más familiares</div>
+                </div>
+            </div>
+
+            <!-- PARTE 11: INFORMACIÓN DE PADRES -->
+            <div class="section">
+                <div class="section-header">Parte 11 - Información sobre Padres (Complete SOLO si basa su solicitud en dificultades para un padre)</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">47)</span> Si su padre/madre no es ciudadano de Estados Unidos, proporcione fecha y lugar de llegada a Estados Unidos:</div>
+                    <textarea class="input-field" placeholder="Incluya detalles completos sobre la fecha, manera y términos de admisión"></textarea>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">48)</span> Mi padre:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="father-employed" />
+                            <label>SÍ está empleado</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="father-employed" />
+                            <label>NO está empleado</label>
+                        </div>
+                    </div>
+                    <div class="subsection">
+                        <strong>Si está empleado:</strong>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre Completo y Dirección del Empleador</th>
+                                        <th style="width: 200px;">Ingresos por Semana</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" placeholder="$" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">49)</span> Mi madre:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="mother-employed" />
+                            <label>SÍ está empleada</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="mother-employed" />
+                            <label>NO está empleada</label>
+                        </div>
+                    </div>
+                    <div class="subsection">
+                        <strong>Si está empleada:</strong>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre Completo y Dirección del Empleador</th>
+                                        <th style="width: 200px;">Ingresos por Semana</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" placeholder="$" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">50)</span> Los bienes de mis padres en Estados Unidos y otros países:</div>
+                    <div class="hint-text">No incluya ropa y necesidades del hogar</div>
+
+                    <div class="grid-2">
+                        <div class="subsection">
+                            <div class="subsection-title" style="border-left-color: #3498db;">BIENES DEL PADRE</div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Efectivo, Acciones y Bonos:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Bienes Raíces:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Auto (valor menos deuda):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Otros (describa):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #34495e;">
+                                <div class="input-label"><strong>TOTAL:</strong></div>
+                                <input type="text" class="input-field" placeholder="$" style="font-weight: bold;" />
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title" style="border-left-color: #e74c3c;">BIENES DE LA MADRE</div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Efectivo, Acciones y Bonos:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Bienes Raíces:</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Auto (valor menos deuda):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <div class="input-label">Otros (describa):</div>
+                                <input type="text" class="input-field" placeholder="$" />
+                            </div>
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #34495e;">
+                                <div class="input-label"><strong>TOTAL:</strong></div>
+                                <input type="text" class="input-field" placeholder="$" style="font-weight: bold;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 12: INFORMACIÓN MISCELÁNEA -->
+            <div class="section">
+                <div class="section-header">Parte 12 - Información Miscelánea</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">51)</span> Yo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="crewman" />
+                            <label>SÍ</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="crewman" />
+                            <label>NO</label>
+                        </div>
+                    </div>
+                    <div class="question-text">entré a Estados Unidos como tripulante después del 30 de junio de 1964</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">52)</span> Yo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="exchange" />
+                            <label>SÍ</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="exchange" />
+                            <label>NO</label>
+                        </div>
+                    </div>
+                    <div class="question-text">he sido admitido como, o después de llegar a Estados Unidos adquirí el estatus de, extranjero de intercambio</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">53)</span> Yo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="address-reports" />
+                            <label>SÍ</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="address-reports" />
+                            <label>NO</label>
+                        </div>
+                    </div>
+                    <div class="question-text">he presentado informes de dirección según lo requerido por la sección 265 de la Ley de Inmigración y Nacionalidad</div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">54)</span> Yo:</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="arrested" />
+                            <label>SÍ</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="arrested" />
+                            <label>NUNCA</label>
+                        </div>
+                    </div>
+                    <div class="question-text">he sido (ya sea en Estados Unidos o en cualquier país extranjero) arrestado, citado a comparecer ante un tribunal como acusado, condenado, multado, encarcelado, puesto en libertad condicional o perdido fianza por un acto que involucre un delito grave, delito menor o violación de cualquier ley u ordenanza pública (incluyendo violaciones de tránsito o incidentes de conducción que involucren alcohol)</div>
+                    
+                    <div class="subsection">
+                        <strong>Si respondió SÍ, proporcione una descripción completa de CADA ofensa:</strong>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Descripción de la Ofensa</th>
+                                        <th>Lugar</th>
+                                        <th>Fecha</th>
+                                        <th>Pena</th>
+                                        <th>Tiempo Servido</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                        <td><input type="text" class="input-field" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="important-note">
+                            <strong>IMPORTANTE:</strong> Debe presentar documentación de cada arresto o condena, incluso si los cargos fueron retirados o desestimados.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">55)</span> ¿Ha servido alguna vez en las Fuerzas Armadas de Estados Unidos?</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="military" />
+                            <label>Sí</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="military" />
+                            <label>No</label>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <strong>Si respondió Sí, proporcione:</strong>
+                        <div class="grid-2">
+                            <div>
+                                <div class="input-label">Rama (Ejército, Marina, etc.):</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Número de servicio:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Lugar de entrada en servicio:</div>
+                                <input type="text" class="input-field" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de entrada:</div>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div>
+                                <div class="input-label">Fecha de baja:</div>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                            <div>
+                                <div class="input-label">Tipo de baja:</div>
+                                <input type="text" class="input-field" placeholder="Honorable, Deshonrosa, etc." />
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Serví en estado de servicio activo desde:</div>
+                            <div class="date-inputs">
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                                <span> hasta </span>
+                                <input type="text" class="input-field" placeholder="DD/MM/AAAA" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">56-59)</span> Preguntas adicionales sobre servicio militar:</div>
+                    <div style="margin-left: 20px;">
+                        <div style="margin-bottom: 15px;">
+                            <strong>56) ¿Alguna vez ha dejado Estados Unidos o la jurisdicción del distrito donde se registró para el reclutamiento militar para evitar ser reclutado?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q56" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q56" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <strong>57) ¿Alguna vez ha desertado de las fuerzas militares de Estados Unidos mientras Estados Unidos estaba en guerra?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q57" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q57" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <strong>58) Si es hombre, ¿se registró bajo la Ley de Servicio Selectivo Militar (Draft)?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q58" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q58" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <div class="input-label">Fecha de registro:</div>
+                                <input type="text" class="input-field input-medium" />
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <div class="input-label">Número de Servicio Selectivo:</div>
+                                <input type="text" class="input-field input-medium" />
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <strong>59) ¿Alguna vez fue eximido del servicio debido a objeción de conciencia, condición de extranjero o cualquier otra razón?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q59" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q59" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 13: MEMBRESÍAS -->
+            <div class="section">
+                <div class="section-header">Parte 13 - Membresías en Organizaciones</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">60)</span> Por favor liste su membresía presente o pasada en o afiliación con toda organización política, asociación, fondo, fundación, partido, club, sociedad o grupo similar en Estados Unidos o cualquier otro lugar desde su cumpleaños número 16.</div>
+                    <div class="hint-text">Incluya cualquier servicio militar extranjero. Si ninguno, escriba "Ninguno".</div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre de la Organización</th>
+                                    <th>Ubicación</th>
+                                    <th>Naturaleza de la Organización</th>
+                                    <th>Miembro Desde</th>
+                                    <th>Miembro Hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 14: PREGUNTAS DE ELEGIBILIDAD -->
+            <div class="section">
+                <div class="section-header">Parte 14 - Preguntas Adicionales sobre Elegibilidad</div>
+
+                <div class="important-note">
+                    <strong>IMPORTANTE:</strong> Estas preguntas son críticas para determinar su elegibilidad. Responda cada una honestamente.
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">61)</span> ¿Alguna vez ha sido:</div>
+                    
+                    <div class="checkbox-group">
+                        <div style="margin-bottom: 15px;">
+                            <strong>a) ¿ordenado deportado, excluido o removido?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q61a" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q61a" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <strong>b) ¿excedido el tiempo de una autorización de salida voluntaria?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q61b" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q61b" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <strong>c) ¿no comparecido para remoción o deportación?</strong>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="q61c" />
+                                    <label>Sí</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="q61c" />
+                                    <label>No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">62)</span> ¿Alguna vez ha sido:</div>
+                    
+                    <div style="margin-left: 20px;">
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>un alcohólico habitual?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>una persona cuyos ingresos derivan principalmente de juegos de azar ilegales?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>una persona que ha dado falso testimonio con el propósito de obtener beneficios de inmigración?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>una persona que se ha involucrado en prostitución o vicio comercializado ilegal?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>involucrado en un delito penal grave y afirmado inmunidad de procesamiento?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>un polígamo?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>alguien que trajo o intentó traer a otra persona a Estados Unidos ilegalmente?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>un traficante de sustancia controlada, o un asistente, cómplice, conspirador o colaborador consciente con otros en tal ofensa (no incluyendo una sola ofensa de posesión simple de 30 gramos o menos de marihuana)?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>inadmisible o deportable por razones relacionadas con la seguridad bajo las secciones 212(a)(3) o 237(a)(4) de la INA?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>alguien que ha ordenado, incitado, asistido o de otra manera participado en la persecución de un individuo debido a su raza, religión, nacionalidad, membresía en un grupo social particular u opinión política?</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>una persona previamente otorgada alivio bajo las secciones 212(c) o 244(a) de la INA o cuya remoción ha sido previamente cancelada bajo la sección 240A de la INA?</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <strong>Si marcó CUALQUIER casilla anterior, explique completamente:</strong>
+                        <textarea class="input-field" rows="5"></textarea>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">63)</span> ¿Es usted el beneficiario de una petición de visa aprobada?</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="visa-petition" />
+                            <label>Sí</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="visa-petition" />
+                            <label>No</label>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 15px;">
+                        <strong>Si respondió Sí, ¿puede organizar un viaje fuera de Estados Unidos para obtener una visa de inmigrante?</strong>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" name="can-travel" />
+                                <label>Sí</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="can-travel" />
+                                <label>No</label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 10px;">
+                            <div class="input-label">Si no puede, explique:</div>
+                            <textarea class="input-field"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 15: EDUCACIÓN -->
+            <div class="section">
+                <div class="section-header">Parte 15 - Historia Educativa</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">64)</span> Mi historia educativa:</div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre de la Escuela</th>
+                                    <th>Tipo de Escuela</th>
+                                    <th>Título Obtenido</th>
+                                    <th>Ubicación</th>
+                                    <th>Desde</th>
+                                    <th>Hasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="Primaria, Secundaria, Universidad" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                    <td><input type="text" class="input-field" placeholder="MM/AAAA" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 16: DOCUMENTOS DE APOYO -->
+            <div class="section">
+                <div class="section-header">Parte 16 - Documentos de Apoyo</div>
+
+                <div class="question">
+                    <div class="question-text"><span class="question-number">65)</span> Los siguientes certificados u otros documentos de apoyo se adjuntan como parte de esta solicitud:</div>
+                    <div class="hint-text">Marque todos los documentos que está incluyendo con este cuestionario</div>
+
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Evidencia de presencia física continua (registros de empleo, contratos de arrendamiento, recibos, registros escolares, etc.)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Registros policiales de cada jurisdicción donde he residido</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Declaraciones juradas de testigos que atestiguan mi buen carácter moral</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Carta del empleador con información sobre naturaleza y duración del empleo e ingresos</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Certificaciones oficiales de relación con familiares (actas de nacimiento, certificados de matrimonio, etc.)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Evidencia de ciudadanía estadounidense o estatus de residente permanente legal de familiares</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Copias de documentos emitidos por DHS/INS</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Documentos que reflejan pago de impuestos</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Historial criminal completo y registros de todas las condenas</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Documentos de pago de manutención infantil</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Dos fotografías a color recientes (si no está detenido)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" />
+                            <label>Otros (especifique): <input type="text" class="input-field" style="margin-left: 10px;" /></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE 17: DECLARACIÓN Y FIRMA -->
+            <div class="section">
+                <div class="section-header">Parte 17 - Declaración del Solicitante</div>
+
+                <div class="important-note">
+                    <strong>ADVERTENCIA IMPORTANTE:</strong> Bajo pena de perjurio, declaro que he examinado este cuestionario y que las respuestas dadas son verdaderas y correctas según mi mejor conocimiento e información. Entiendo que proporcionar información falsa puede resultar en la negación de mi solicitud y puede someter me a consecuencias penales bajo las leyes de Estados Unidos.
+                </div>
+
+                <div class="signature-box">
+                    <div style="text-align: left; margin-bottom: 30px;">
+                        <strong>Yo juro o afirmo que:</strong>
+                        <ul style="margin-top: 10px; text-align: left;">
+                            <li>Conozco el contenido de este cuestionario</li>
+                            <li>Todas las respuestas son verdaderas y correctas según mi mejor conocimiento</li>
+                            <li>Entiendo que información falsa puede resultar en consecuencias legales graves</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 40px; text-align: left;">
+                        <div style="border-top: 2px solid #34495e; width: 400px; margin-bottom: 5px;"></div>
+                        <strong>Firma del Solicitante</strong>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: left;">
+                        <div style="border-top: 2px solid #34495e; width: 300px; margin-bottom: 5px;"></div>
+                        <strong>Fecha</strong>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: left;">
+                        <div style="border-top: 2px solid #34495e; width: 400px; margin-bottom: 5px;"></div>
+                        <strong>Nombre Completo (en letra de molde)</strong>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-title" style="border-left-color: #16a085;">INFORMACIÓN DE CONTACTO</div>
+                    <div class="grid-2">
+                        <div>
+                            <div class="input-label">Mejor número de teléfono para contactarlo:</div>
+                            <input type="tel" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Correo electrónico (si tiene):</div>
+                            <input type="email" class="input-field" />
+                        </div>
+                        <div>
+                            <div class="input-label">Mejor horario para llamadas:</div>
+                            <input type="text" class="input-field" placeholder="ej: Lunes a Viernes 9am-5pm" />
+                        </div>
+                        <div>
+                            <div class="input-label">¿Prefiere llamadas o mensajes de texto?</div>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" name="contact-pref" />
+                                    <label>Llamadas</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" name="contact-pref" />
+                                    <label>Mensajes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTAS FINALES -->
+            <div class="section">
+                <div class="privacy-note">
+                    <strong>NOTA DE PRIVACIDAD:</strong> Toda la información proporcionada en este cuestionario es estrictamente confidencial y está protegida por el privilegio abogado-cliente. Este documento es para uso interno del Law Offices of Eliana Phelps y será utilizado para preparar su Formulario EOIR-42B oficial ante la corte de inmigración.
+                </div>
+
+                <div class="important-note">
+                    <strong>PRÓXIMOS PASOS:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Complete todas las secciones de este cuestionario</li>
+                        <li>Reúna todos los documentos marcados en la Parte 16</li>
+                        <li>Devuelva este cuestionario completo con todos los documentos de apoyo a nuestra oficina</li>
+                        <li>Nuestro equipo legal revisará su información y preparará su solicitud oficial</li>
+                        <li>Lo contactaremos si necesitamos información adicional</li>
+                    </ul>
+                </div>
+
+                <div style="background: #e8f4f8; padding: 20px; border-left: 4px solid #3498db; border-radius: 5px; margin-top: 20px;">
+                    <strong style="font-size: 16px; color: #2c3e50;">¿Preguntas sobre este cuestionario?</strong>
+                    <p style="margin-top: 10px; color: #555;">
+                        Si tiene preguntas sobre cómo completar cualquier parte de este formulario, por favor comuníquese con nuestra oficina. Estamos aquí para ayudarlo durante todo el proceso.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="firm-name" style="font-size: 24px; margin-bottom: 15px;">LAW OFFICES OF ELIANA PHELPS</div>
+            <div style="font-size: 14px; opacity: 0.9;">
+                Cuestionario EOIR-42B para Cancelación de Remoción
+            </div>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 12px;">
+                Este formulario es confidencial y está protegido por el privilegio abogado-cliente
+            </div>
+            <div style="margin-top: 10px; font-size: 12px; opacity: 0.8;">
+                Para uso interno del bufete - No es el formulario oficial EOIR-42B
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para imprimir el formulario
+        function imprimirFormulario() {
+            window.print();
+        }
+
+        // Agregar botón de impresión
+        window.addEventListener('DOMContentLoaded', function() {
+            const botonImprimir = document.createElement('button');
+            botonImprimir.textContent = 'Imprimir Formulario';
+            botonImprimir.style.cssText = 'position: fixed; bottom: 20px; right: 20px; padding: 15px 30px; background: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 1000;';
+            botonImprimir.onclick = imprimirFormulario;
+            document.body.appendChild(botonImprimir);
+
+            // Ocultar botón al imprimir
+            window.addEventListener('beforeprint', function() {
+                botonImprimir.style.display = 'none';
+            });
+            window.addEventListener('afterprint', function() {
+                botonImprimir.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
